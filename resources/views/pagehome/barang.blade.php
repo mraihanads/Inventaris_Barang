@@ -72,6 +72,7 @@
         margin: 0 auto;
     }
 
+
     .barang-card {
         background: white;
         border-radius: 20px;
