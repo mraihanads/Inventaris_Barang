@@ -1,5 +1,6 @@
 @extends('admin.layout.main')
 @section('page_heading','Edit Barang')
+
 @section('content')
 <div class="max-w-2xl">
     @if($errors->any())
@@ -16,8 +17,18 @@
                 <input type="text" name="kode_barang" value="{{ old('kode_barang',$barang->kode_barang) }}" class="w-full border rounded px-3 py-2" required>
             </div>
             <div>
-                <label class="block mb-1">Nama</label>
+                <label class="block mb-1">Nama Barang</label>
                 <input type="text" name="nama" value="{{ old('nama',$barang->nama) }}" class="w-full border rounded px-3 py-2" required>
+            </div>
+
+            <div>
+                <label class="block mb-1">Tahun Perolehan</label>
+                <input type="number" name="tahun_perolehan" value="{{ old('tahun_perolehan',$barang->tahun_perolehan) }}" min="1900" max="{{ date('Y') }}" class="w-full border rounded px-3 py-2" required>
+            </div>
+
+            <div>
+                <label class="block mb-1">Harga</label>
+                <input type="number" name="harga" value="{{ old('harga',$barang->harga) }}" class="w-full border rounded px-3 py-2" min="0" required>
             </div>
 
             <div>
@@ -25,7 +36,9 @@
                 <select name="lokasi_barang_id" class="w-full border rounded px-3 py-2">
                     <option value="">-- Pilih Lokasi --</option>
                     @foreach($lokasi as $l)
-                    <option value="{{ $l->id }}" {{ (old('lokasi_barang_id',$barang->lokasi_barang_id) == $l->id) ? 'selected' : '' }}>{{ $l->nama ?? $l->nama_ruangan ?? 'Lokasi '.$l->id }}</option>
+                        <option value="{{ $l->id }}" {{ (old('lokasi_barang_id',$barang->lokasi_barang_id) == $l->id) ? 'selected' : '' }}>
+                            {{ $l->nama }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -35,24 +48,11 @@
                 <select name="perolehan_barang_id" class="w-full border rounded px-3 py-2">
                     <option value="">-- Pilih Perolehan --</option>
                     @foreach($perolehan as $p)
-                    <option value="{{ $p->id }}" {{ (old('perolehan_barang_id',$barang->perolehan_barang_id) == $p->id) ? 'selected' : '' }}>{{ $p->nama ?? $p->jenis ?? 'Perolehan '.$p->id }}</option>
+                        <option value="{{ $p->id }}" {{ (old('perolehan_barang_id',$barang->perolehan_barang_id) == $p->id) ? 'selected' : '' }}>
+                            {{ $p->nama }}
+                        </option>
                     @endforeach
                 </select>
-            </div>
-
-            <div>
-                <label class="block mb-1">Jumlah</label>
-                <input type="number" name="jumlah" value="{{ old('jumlah',$barang->jumlah) }}" class="w-full border rounded px-3 py-2" min="1" required>
-            </div>
-
-            <div>
-                <label class="block mb-1">Harga Total</label>
-                <input type="number" name="harga_total" value="{{ old('harga_total',$barang->harga_total) }}" class="w-full border rounded px-3 py-2" min="0" required>
-            </div>
-
-            <div>
-                <label class="block mb-1">Harga Per Unit</label>
-                <input type="number" name="harga_per_unit" value="{{ old('harga_per_unit',$barang->harga_per_unit) }}" class="w-full border rounded px-3 py-2" min="0" required>
             </div>
 
             <div class="md:col-span-2">

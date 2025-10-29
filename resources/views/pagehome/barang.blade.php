@@ -12,12 +12,8 @@
         font-family: 'Poppins', sans-serif;
     }
 
-    /* === HEADER PARALLAX === */
     .header-bg {
         position: relative;
-        top: 0;
-        left: 0;
-        right: 0;
         width: 100vw;
         height: 30vh;
         background: url('{{ asset('images/bg-inventaris.jpg') }}') center center / cover no-repeat fixed;
@@ -30,11 +26,6 @@
         z-index: 0;
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
-    }
-
-    main {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
     }
 
     .header-bg::before {
@@ -56,7 +47,6 @@
         margin: 0;
     }
 
-    /* === SECTION BARANG === */
     .barang-section {
         background: linear-gradient(to bottom, #f9fafb, #eef2ff);
         padding: 4rem 0 6rem;
@@ -71,7 +61,6 @@
         max-width: 1100px;
         margin: 0 auto;
     }
-
 
     .barang-card {
         background: white;
@@ -100,8 +89,8 @@
     }
 
     .barang-card p {
-        color: #374151;
-        margin: 0.3rem 0;
+        color: #1f2937;
+        margin: 0.4rem 0;
         font-size: 0.95rem;
         line-height: 1.4;
     }
@@ -135,17 +124,9 @@
     }
 
     @media (max-width: 768px) {
-        .barang-card {
-            padding: 1.5rem;
-        }
-
-        .barang-card h2 {
-            font-size: 1.2rem;
-        }
-
-        .header-bg {
-            height: 28vh;
-        }
+        .barang-card { padding: 1.5rem; }
+        .barang-card h2 { font-size: 1.2rem; }
+        .header-bg { height: 28vh; }
     }
 </style>
 
@@ -166,11 +147,12 @@
             @foreach($lokasi->barang as $b)
                 <div class="barang-card">
                     <h2>{{ $b->nama }}</h2>
-                    <p><strong>Kode:</strong> {{ $b->kode_barang }}</p>
-                    <p><strong>Jumlah:</strong> {{ $b->jumlah }}</p>
-                    <p><strong>Harga/Unit:</strong> Rp{{ number_format($b->harga_per_unit, 0, ',', '.') }}</p>
-                    <p><strong>Total:</strong> Rp{{ number_format($b->harga_total, 0, ',', '.') }}</p>
+                    <p><strong>Kode Barang:</strong> {{ $b->kode_barang }}</p>
+                    <p><strong>Harga:</strong> Rp{{ number_format($b->harga, 0, ',', '.') }}</p>
+                    <p><strong>Tahun Perolehan:</strong> {{ $b->tahun_perolehan }}</p>
                     <p><strong>Kondisi:</strong> {{ $b->kondisi }}</p>
+                    <p><strong>Perolehan:</strong> {{ $b->perolehan->nama ?? '-' }}</p>
+                    <p><strong>Catatan:</strong> {{ $b->catatan ?? '-' }}</p>
                 </div>
             @endforeach
         @endif

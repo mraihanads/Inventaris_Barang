@@ -12,19 +12,17 @@ class Barang extends Model
     protected $table = 'barang';
 
     protected $fillable = [
-        'lokasi_barang_id',
-        'perolehan_barang_id',
         'kode_barang',
         'nama',
-        'merk',
-        'bahan',
+        'lokasi_barang_id',
+        'perolehan_barang_id',
+        'harga',
         'tahun_perolehan',
         'kondisi',
-        'jumlah',
-        'harga_total',
-        'harga_per_unit',
-        'catatan'
+        'catatan',
     ];
+
+
 
     public function lokasi()
     {

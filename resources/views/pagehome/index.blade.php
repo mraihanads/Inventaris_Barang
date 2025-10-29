@@ -121,10 +121,6 @@
             <a href="{{ route('ruangan.public') }}" class="btn btn-primary">
                 <i class="fa-solid fa-box-open mr-2"></i> Lihat Data Barang
             </a>
-
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-admin">
-                <i class="fa-solid fa-lock mr-2"></i> Masuk Admin
-            </a>
         </div>
     </div>
 </section>

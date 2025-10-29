@@ -8,10 +8,9 @@
         <li><strong>Kode:</strong> {{ $barang->kode_barang }}</li>
         <li><strong>Lokasi:</strong> {{ $barang->lokasi->nama ?? '-' }}</li>
         <li><strong>Perolehan:</strong> {{ $barang->perolehan->nama ?? '-' }}</li>
-        <li><strong>Jumlah:</strong> {{ $barang->jumlah }}</li>
+        <li><strong>Tahun Perolehan:</strong> {{ $barang->tahun_perolehan }}</li>
         <li><strong>Kondisi:</strong> {{ $barang->kondisi }}</li>
-        <li><strong>Harga Total:</strong> Rp{{ number_format($barang->harga_total,0,',','.') }}</li>
-        <li><strong>Harga Per Unit:</strong> Rp{{ number_format($barang->harga_per_unit,0,',','.') }}</li>
+        <li><strong>Harga:</strong> Rp{{ number_format($barang->harga,0,',','.') }}</li>
         <li><strong>Catatan:</strong> {{ $barang->catatan ?? '-' }}</li>
     </ul>
 

@@ -35,19 +35,8 @@
         </div>
 
         <div>
-            <label class="block text-gray-600 font-medium mb-1">Jumlah</label>
-            <input type="number" name="jumlah" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-                <label class="block text-gray-600 font-medium mb-1">Harga Total</label>
-                <input type="number" name="harga_total" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-            </div>
-            <div>
-                <label class="block text-gray-600 font-medium mb-1">Harga Per Unit</label>
-                <input type="number" name="harga_per_unit" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-            </div>
+            <label class="block text-gray-600 font-medium mb-1">Harga</label>
+            <input type="number" name="harga" class="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
         </div>
 
         <div>

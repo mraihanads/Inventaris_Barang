@@ -17,13 +17,8 @@ return new class extends Migration
         $table->unsignedBigInteger('perolehan_barang_id');
         $table->string('kode_barang')->unique();
         $table->string('nama');
-        $table->string('merk')->nullable();
-        $table->string('bahan')->nullable();
         $table->year('tahun_perolehan');
         $table->tinyInteger('kondisi')->comment('1=Baik,2=Kurang Baik,3=Rusak Berat');
-        $table->bigInteger('jumlah');
-        $table->bigInteger('harga_total');
-        $table->bigInteger('harga_per_unit');
         $table->longText('catatan')->nullable();
         $table->timestamps();
 

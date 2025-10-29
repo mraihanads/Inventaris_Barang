@@ -1,19 +1,44 @@
-@extends('layouts.app')
-@section('title','Edit Perolehan')
+@extends('admin.layout.main')
+@section('page_heading','Edit Perolehan')
 
 @section('content')
-<h2>Edit Perolehan</h2>
-<form method="POST" action="{{ route('perolehan.update',$perolehan->id) }}">
-    @csrf @method('PUT')
-    <div class="mb-3">
-        <label>Nama</label>
-        <input type="text" name="nama" value="{{ $perolehan->nama }}" class="form-control" required>
+<div class="max-w-2xl">
+    @if($errors->any())
+    <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
+        <ul class="list-disc pl-5">
+            @foreach($errors->all() as $err)
+                <li>{{ $err }}</li>
+            @endforeach
+        </ul>
     </div>
-    <div class="mb-3">
-        <label>Deskripsi</label>
-        <textarea name="deskripsi" class="form-control">{{ $perolehan->deskripsi }}</textarea>
-    </div>
-    <button type="submit" class="btn btn-success">Update</button>
-    <a href="{{ route('perolehan.index') }}" class="btn btn-secondary">Batal</a>
-</form>
+    @endif
+
+    <form action="{{ route('perolehan.update', $perolehan->id) }}" method="POST" 
+          class="bg-white p-6 rounded shadow">
+        @csrf 
+        @method('PUT')
+
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+                <label class="block mb-1">Nama Perolehan</label>
+                <input type="text" name="nama" 
+                       value="{{ old('nama', $perolehan->nama) }}" 
+                       class="w-full border rounded px-3 py-2" required>
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="block mb-1">Deskripsi</label>
+                <textarea name="deskripsi" rows="3"
+                          class="w-full border rounded px-3 py-2">{{ old('deskripsi', $perolehan->deskripsi) }}</textarea>
+            </div>
+        </div>
+
+        <div class="mt-6 flex justify-end gap-3">
+            <a href="{{ route('perolehan.index') }}" 
+               class="px-4 py-2 bg-gray-400 text-black rounded">Batal</a>
+            <button type="submit" 
+                    class="px-4 py-2 bg-yellow-500 text-black rounded">Update</button>
+        </div>
+    </form>
+</div>
 @endsection

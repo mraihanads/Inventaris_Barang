@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PerolehanBarangController extends Controller
 {
     /**
-     * Tampilkan semua data perolehan.
+     * Menampilkan semua data perolehan.
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Tampilkan form tambah perolehan.
+     * Menampilkan form untuk menambah data baru.
      */
     public function create()
     {
@@ -25,13 +25,13 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Simpan data perolehan baru.
+     * Menyimpan data perolehan baru ke database.
      */
     public function store(Request $request)
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:100',
-            'keterangan' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string|max:255', // ✅ ubah dari 'keterangan' ke 'deskripsi'
         ]);
 
         PerolehanBarang::create($validated);
@@ -41,7 +41,7 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Tampilkan detail perolehan.
+     * Menampilkan detail dari satu data perolehan.
      */
     public function show($id)
     {
@@ -50,7 +50,7 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Form edit data perolehan.
+     * Menampilkan form edit data perolehan.
      */
     public function edit($id)
     {
@@ -59,13 +59,13 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Update data perolehan.
+     * Mengupdate data perolehan yang sudah ada.
      */
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:100',
-            'keterangan' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string|max:255',
         ]);
 
         $perolehan = PerolehanBarang::findOrFail($id);
@@ -76,7 +76,7 @@ class PerolehanBarangController extends Controller
     }
 
     /**
-     * Hapus data perolehan.
+     * Menghapus data perolehan.
      */
     public function destroy($id)
     {

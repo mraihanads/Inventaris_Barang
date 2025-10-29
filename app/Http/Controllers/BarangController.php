@@ -27,19 +27,16 @@ class BarangController extends Controller
         $validated = $request->validate([
             'kode_barang' => 'required|unique:barang,kode_barang',
             'nama' => 'required|string|max:255',
-            'merk' => 'nullable|string|max:100',
-            'bahan' => 'nullable|string|max:100',
-            'tahun_perolehan' => 'required|integer|min:1900|max:' . date('Y'),
-            'kondisi' => 'required|string|max:50',
-            'jumlah' => 'required|integer|min:1',
-            'harga_total' => 'required|numeric|min:0',
-            'harga_per_unit' => 'required|numeric|min:0',
             'lokasi_barang_id' => 'nullable|exists:lokasi_barang,id',
             'perolehan_barang_id' => 'nullable|exists:perolehan_barang,id',
+            'harga' => 'required|numeric|min:0',
+            'tahun_perolehan' => 'required|integer|min:1900|max:' . date('Y'),
+            'kondisi' => 'required|string|max:100',
             'catatan' => 'nullable|string|max:255',
         ]);
 
         Barang::create($validated);
+
         return redirect()->route('barang.index')->with('success', '✅ Barang berhasil ditambahkan.');
     }
 
@@ -64,19 +61,16 @@ class BarangController extends Controller
         $validated = $request->validate([
             'kode_barang' => 'required|unique:barang,kode_barang,' . $barang->id,
             'nama' => 'required|string|max:255',
-            'jumlah' => 'required|integer|min:1',
-            'harga_total' => 'required|numeric|min:0',
-            'harga_per_unit' => 'required|numeric|min:0',
-            'kondisi' => 'nullable|string|max:100',
             'lokasi_barang_id' => 'nullable|exists:lokasi_barang,id',
             'perolehan_barang_id' => 'nullable|exists:perolehan_barang,id',
-            'merk' => 'nullable|string|max:100',
-            'bahan' => 'nullable|string|max:100',
-            'tahun_perolehan' => 'nullable|integer|min:1900|max:' . date('Y'),
+            'harga' => 'required|numeric|min:0',
+            'tahun_perolehan' => 'required|integer|min:1900|max:' . date('Y'),
+            'kondisi' => 'required|string|max:100',
             'catatan' => 'nullable|string|max:255',
         ]);
 
         $barang->update($validated);
+
         return redirect()->route('barang.index')->with('success', '✅ Barang berhasil diperbarui.');
     }
 
