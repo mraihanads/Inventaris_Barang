@@ -48,39 +48,6 @@
                         </div>
                     </div>
                 </a>
-
-                {{-- Pengguna --}}
-                <a href="{{ route('pengguna.index') }}" class="block p-6 bg-white border rounded-lg shadow hover:shadow-lg transition">
-                    <div class="flex items-center">
-                        <div class="p-3 bg-red-100 rounded-full">👤</div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-800">Pengguna</h4>
-                            <p class="text-sm text-gray-600">Kelola akun pengguna</p>
-                        </div>
-                    </div>
-                </a>
-
-                {{-- Peran --}}
-                <a href="{{ route('peran.index') }}" class="block p-6 bg-white border rounded-lg shadow hover:shadow-lg transition">
-                    <div class="flex items-center">
-                        <div class="p-3 bg-purple-100 rounded-full">🎭</div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-800">Peran</h4>
-                            <p class="text-sm text-gray-600">Kelola peran (role) pengguna</p>
-                        </div>
-                    </div>
-                </a>
-
-                {{-- Hak Akses --}}
-                <a href="{{ route('hak.index') }}" class="block p-6 bg-white border rounded-lg shadow hover:shadow-lg transition">
-                    <div class="flex items-center">
-                        <div class="p-3 bg-pink-100 rounded-full">🔑</div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-semibold text-gray-800">Hak Akses</h4>
-                            <p class="text-sm text-gray-600">Kelola hak akses (permission)</p>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
     </div>

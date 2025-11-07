@@ -5,8 +5,7 @@
 
     {{-- Header --}}
     <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-8">
-        <h1 class="text-4xl font-bold text-gray-900">Selamat Datang, {{ Auth::user()->nama ?? 'Administrator' }} 👋</h1>
-        <p class="text-gray-500 mt-2 text-base">Kelola inventaris barang dengan tampilan bersih dan profesional.</p>
+        <h1 class="text-4xl font-bold text-gray-900">Selamat Datang Di Inventaris PNL</h1>
     </div>
 
     {{-- Statistik Cards --}}
@@ -44,23 +43,6 @@
                     <p class="text-gray-500 text-sm font-medium">Total Perolehan</p>
                     <h2 class="text-4xl font-bold text-gray-900 mt-2">{{ \App\Models\PerolehanBarang::count() }}</h2>
                 </div>
-                <div class="icon-circle group-hover:bg-gray-100">
-                    <i class="fas fa-file-alt text-gray-700 text-2xl"></i>
-                </div>
-            </div>
-        </div>
-
-        {{-- Total Pengguna --}}
-        <div class="card-clean group">
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium">Total Pengguna</p>
-                    <h2 class="text-4xl font-bold text-gray-900 mt-2">{{ \App\Models\Pengguna::count() }}</h2>
-                </div>
-                <div class="icon-circle group-hover:bg-gray-100">
-                    <i class="fas fa-users text-gray-700 text-2xl"></i>
-                </div>
-            </div>
         </div>
     </div>
 

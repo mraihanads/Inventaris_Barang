@@ -58,16 +58,9 @@
                 <a href="{{ route('lokasi.index') }}" class="flex items-center px-6 py-3 hover:bg-indigo-50 text-gray-700 {{ request()->is('lokasi*') ? 'nav-active' : '' }}">
                     <i class="fas fa-building mr-3"></i> Data Ruangan
                 </a>
-                <a href="{{ route('pengguna.index') }}" class="flex items-center px-6 py-3 hover:bg-indigo-50 text-gray-700 {{ request()->is('pengguna*') ? 'nav-active' : '' }}">
-                    <i class="fas fa-user mr-3"></i> Data Pengguna
-                </a>
-
                 <p class="px-6 text-gray-400 text-xs uppercase mt-5 mb-1">Pengaturan</p>
                 <a href="{{ route('profile.edit') }}" class="flex items-center px-6 py-3 hover:bg-indigo-50 text-gray-700 {{ request()->routeIs('profile.edit') ? 'nav-active' : '' }}">
                     <i class="fas fa-cog mr-3"></i> Pengaturan Profil
-                </a>
-                <a href="{{ route('peran.index') }}" class="flex items-center px-6 py-3 hover:bg-indigo-50 text-gray-700 {{ request()->is('peran*') ? 'nav-active' : '' }}">
-                    <i class="fas fa-key mr-3"></i> Peran & Hak Akses
                 </a>
             </nav>
         </div>

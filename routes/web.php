@@ -6,8 +6,6 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LokasiBarangController;
 use App\Http\Controllers\PerolehanBarangController;
 use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\PeranController;
-use App\Http\Controllers\HakAksesController;
 
 // =========================
 // 🔹 PAGE UTAMA
@@ -49,7 +47,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('barang', BarangController::class);
     Route::resource('lokasi', LokasiBarangController::class);
     Route::resource('perolehan', PerolehanBarangController::class);
-    Route::resource('pengguna', PenggunaController::class);
-    Route::resource('peran', PeranController::class);
-    Route::resource('hak', HakAksesController::class);
 });

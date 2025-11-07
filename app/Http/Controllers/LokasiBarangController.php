@@ -42,6 +42,14 @@ class LokasiBarangController extends Controller
     {
         return view('admin.lokasi.create');
     }
+    /**
+     * 🔹 Tampilkan detail lokasi
+     */
+    public function show($id)
+    {
+        $lokasi = \App\Models\LokasiBarang::findOrFail($id);
+        return view('admin.lokasi.show', compact('lokasi'));
+    }
 
     /**
      * 🔹 Simpan data lokasi baru
